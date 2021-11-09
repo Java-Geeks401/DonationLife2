@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" th:href="@{/css/signup.css}"/>
+    <!------ Include the above in your HEAD tag ---------->
+    <title>signUp</title>
+</head>
+<body>
+
+<header>
+
+</header>
+<main>
+    <div class="container">
+        <div class="overlay" id="overlay">
+            <div class="sign-in" id="sign-in">
+<!--                <h1>Sign-up as Charity</h1>-->
+                <button class="switch-button" id="slide-right-button">Charity Sign-up</button>
+            </div>
+            <div class="sign-up" id="sign-up">
+                <button class="switch-button" id="slide-left-button">Donator Sign-Up</button>
+            </div>
+        </div>
+        <div class="form">
+            <div class="sign-in" id="sign-in-info">
+                <h1>Charity Sign-up</h1>
+
+                <form id="sign-in-form" onsubmit ="return validateForm() "action="/charityOrganizationForm" method="post">
+
+
+                        <input required type="text" placeholder="Username"  id="username" name="username"  >
+
+                        <label>
+                            <input required placeholder="Password" name="password" id="passwordCharity" type="password" onkeyup='check();' />
+                            <span id = "message3" style="color:red"> </span>
+                        </label>
+
+                        <label >
+                            <input required placeholder="Confirm password" type="password" name="confirm_password" id="confirm_passwordCharity"  onkeyup='check();' />
+                            <span id = "message4" style="color:red"> </span>
+
+                        </label>
+
+                        <input required placeholder="Name of Organization" type="text" name="name" >
+
+                        <input required placeholder="Email" type="email" name="email" >
+
+                        <input required placeholder="Facebook" type="text" name="facebook" >
+
+                        <input  required placeholder="Phone Number" type="text" name="number"  >
+
+                        <input placeholder="Address" type="address" name="address">
+
+
+                    <button class="control-button up">Sign up</button>
+                </form>
+           </div>
+
+            <div class="sign-up" id="sign-up-info">
+                <h1>Donor Sign-up</h1>
+                <form id="sign-up-form" onsubmit ="return validateForm() " method="POST" action="/signup">
+                    <input required type="text" placeholder="Username" name="username"/>
+                    <input type="text" placeholder="First Name" required name="firstName"  id="firstName"/>
+                    <input type="text" placeholder="Last Name" required name="lastName" id="lastName"/>
+                    <input required type="email" placeholder="Email" name="email"/>
+                    <input required type="number" placeholder="Phone Number" name="PhoneNumber"/>
+
+                    <label class="form-label">
+                    <input required type="password" placeholder="Password" name="password" id="password"  onkeyup='check();'/>
+                        <span id = "message1" style="color:red"> </span>
+                    </label>
+
+                    <label class="form-label">
+                    <input required type="password" placeholder="Confirm password" name="confirm_password" id="confirm_password"  onkeyup='check();'/>
+                        <span id = "message2" style="color:red"> </span>
+                    </label>
+
+                    <input required type="date" placeholder="Birth of Date" name="dateOfBirth" id="dateOfBirth" />
+                    <button class="control-button up">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+<footer>
+
+</footer>
+
+
+
+<script>
+
+
+var overlay = document.getElementById("overlay");
+
+// Buttons to 'switch' the page
+var openSignUpButton = document.getElementById("slide-left-button");
+var openSignInButton = document.getElementById("slide-right-button");
+
+// The sidebars
+var leftText = document.getElementById("sign-in");
+var rightText = document.getElementById("sign-up");
+
+// The forms
+var accountForm = document.getElementById("sign-in-info")
+var signinForm = document.getElementById("sign-up-info");
+
+// Open the Sign Up page
+openSignUp = () =>{
+  // Remove classes so that animations can restart on the next 'switch'
+  leftText.classList.remove("overlay-text-left-animation-out");
+  overlay.classList.remove("open-sign-in");
+  rightText.classList.remove("overlay-text-right-animation");
+  // Add classes for animations
+  accountForm.className += " form-left-slide-out"
+  rightText.className += " overlay-text-right-animation-out";
+  overlay.className += " open-sign-up";
+  leftText.className += " overlay-text-left-animation";
+  // hide the sign up form once it is out of view
+  setTimeout(function(){
+    accountForm.classList.remove("form-left-slide-in");
+    accountForm.style.display = "none";
+    accountForm.classList.remove("form-left-slide-out");
+  }, 700);
+  // display the sign in form once the overlay begins moving right
+  setTimeout(function(){
+    signinForm.style.display = "flex";
+    signinForm.classList += " form-right-slide-in";
+  }, 200);
+}
+
+// Open the Sign In page
+openSignIn = () =>{
+  // Remove classes so that animations can restart on the next 'switch'
+  leftText.classList.remove("overlay-text-left-animation");
+  overlay.classList.remove("open-sign-up");
+  rightText.classList.remove("overlay-text-right-animation-out");
+  // Add classes for animations
+  signinForm.classList += " form-right-slide-out";
+  leftText.className += " overlay-text-left-animation-out";
+  overlay.className += " open-sign-in";
+  rightText.className += " overlay-text-right-animation";
+  // hide the sign in form once it is out of view
+  setTimeout(function(){
+    signinForm.classList.remove("form-right-slide-in")
+    signinForm.style.display = "none";
+    signinForm.classList.remove("form-right-slide-out")
+  },500);
+  // display the sign up form once the overlay begins moving left
+  setTimeout(function(){
+    accountForm.style.display = "flex";
+    accountForm.classList += " form-left-slide-in";
+  },200);
+}
+
+// When a 'switch' button is pressed, switch page
+
+openSignUpButton.addEventListener("click", openSignUp, false);
+openSignInButton.addEventListener("click", openSignIn, false);
+
+// validate
+
+    function validateForm() {
+
+    var pw1 = document.getElementById("password").value;
+    var pw2 = document.getElementById("confirm_password").value;
+
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+    //minimum password length validation
+    if(pw1.length < 6) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 6 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    }
+
+ }
+
+
+  function validateForm() {
+
+    var pw1 = document.getElementById("passwordCharity").value;
+    var pw2 = document.getElementById("confirm_passwordCharity").value;
+
+    if(pw1 == "") {
+      document.getElementById("message3").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+    if(pw2 == "") {
+      document.getElementById("message4").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+    //minimum password length validation
+    if(pw1.length < 6) {
+      document.getElementById("message3").innerHTML = "**Password length must be atleast 6 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message3").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message4").innerHTML = "**Passwords are not same";
+      return false;
+    }
+
+ }
+</script>
+</body>
+</html>
+

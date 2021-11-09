@@ -27,4 +27,9 @@ public class HomeController {
         return "login";
     }
 
+    @GetMapping("/indexin")
+    public String indexINp() {
+        return "indexin";
+    }
+
 }
