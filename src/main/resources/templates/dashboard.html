@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>dashbord</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+<main>
+    <h1>this is dash bord page</h1>
+    <div class="alert alert-primary" role="alert">
+        ADMIN SECTION
+    </div>
+    <div th:each="donor:${donaters}" th:if="${donor.getAuthority() == 'ROLE_ADMIN'}">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" th:src="@{/img/dashboard/admin.png}" alt="Card image cap">
+            <div class="card-body">
+                <h5 th:text="${donor.username}"></h5>
+                <p th:text="${donor.firstName}+' '+${donor.lastName}"></p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+        DONATERS SECTION
+    </div>
+
+    <div class="row">
+        <div th:each="donor:${donaters}">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" th:src="@{/img/dashboard/donator.svg}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 th:text="${donor.username}"></h5>
+                    <p th:text="${donor.firstName}+' '+${donor.lastName}"></p>
+                    <p th:text="${donor.dateOfBirth}"></p>
+                    <a th:href="@{/admin/deletedonator/{id}(id=${donor.getId()})}" class="btn btn-primary">Delete Donor</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+        CHARITY ORGANIZATIONS SECTION
+    </div>
+
+    <div class="row">
+        <div th:each="organization:${organizations}">
+            <div class="card" style="width: 18rem;margin:20px;">
+                <img class="card-img-top" th:src="@{/img/dashboard/charity.png}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 th:text="${organization.name}"></h5>
+                    <p th:text="${organization.email}"></p>
+                    <p th:text="${organization.facebookPage}"></p>
+                    <p th:text="${organization.number}"></p>
+                    <p th:text="${organization.address}"></p>
+                    <a th:href="@{/admin/deletecharityorg/{id}(id=${organization.getId()})}" class="btn btn-primary">Delete Organization</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+        LIST OF CATEGORIES
+    </div>
+
+    <div>
+        <ul th:each="catalog:${catalogs}" class="list-group">
+            <li class="list-group-item list-group-item-success"><span th:text="${catalog.catalogName}"></span>
+                <a th:href="@{/admin/deletecatalog/{id}(id=${catalog.getCatalogId()})}" class="btn btn-primary">Delete catalog</a>
+            </li>
+
+
+        </ul>
+        <form method="POST" action="/admin/addCatalog">
+            <div class="mb-3">
+                <label for="name" class="form-label" style="margin-left:2%"> Catalog Name</label>
+                <input type="text" class="form-control" id="name" name="name"  style="width:25%;margin-left:2%" required>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-left:2%">Add catalog</button>
+        </form>
+
+    </div>
+
+
+    <div class="alert alert-primary" role="alert">
+        LIST OF ITEMS
+    </div>
+
+    <div>
+        <ul th:each="item:${items}" class="list-group">
+            <li class="list-group-item list-group-item-success"><span th:text="${item.itemName}"></span>/
+                <span th:text="${item.catalogItems.catalogName}"></span>
+                <a th:href="@{/admin/deleteItem/{id}(id=${item.getItemId()})}" class="btn btn-primary">Delete Item</a>
+            </li>
+
+        </ul>
+        <form method="POST" action="/admin/addItem">
+
+            <div  class="form-group">
+                <label for="catalogId">Catalog Name</label>
+                <select   class="form-control" id="catalogId" name="catalogId">
+                    <option th:each="catalog:${catalogs}" th:value="${catalog.catalogId}" ><span th:text="${catalog.catalogName}"></span></option>
+                </select>
+            </div>
+
+            <!--            <div class="mb-3">-->
+            <!--                <label for="catalogId" class="form-label" style="margin-left:2%"> Catalog Id</label>-->
+            <!--                <input type="text" class="form-control" id="catalogId" name="catalogId"  style="width:25%;margin-left:2%" required>-->
+
+            <!--            </div>-->
+
+
+            <div class="mb-3">
+                <label for="itemName" class="form-label" style="margin-left:2%"> Item Name:</label>
+                <input type="text" name="itemName" class="form-control" id="itemName" style="width:25%;margin-left:2%" required>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" style="margin-left:2%">Add Item</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

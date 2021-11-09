@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="">
+<header th:fragment="header">
+  <nav >
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">Homepage</a>
+      </li>
+      <li sec:authorize="isAuthenticated()" class="nav-item">
+        <a class="nav-link" href="/perform_logout">Logout</a>
+      </li>
+      <li sec:authorize="isAnonymous()" class="nav-item">
+        <a class="nav-link" href="/login">Log In</a>
+      </li>
+      <li sec:authorize="isAuthenticated()" class="nav-item">
+        <a class="nav-link " href="/profile">myProfile</a>
+      </li>
+      <li sec:authorize="hasAuthority('ROLE_ADMIN')" class="nav-item">
+        <a class="nav-link " href="/dashbord">Dash Board</a>
+      </li>
+      <li sec:authorize="isAuthenticated()" class="nav-item">
+        <a class="nav-link " href="#">Donation</a>
+      </li>
+    </ul>
+
+
+
+  </nav>
+</header>
+</html>

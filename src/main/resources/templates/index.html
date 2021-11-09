@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div sec:authorize="!isAuthenticated()" class="link-btn text-center text-lg-right">
+    <a th:href="@{/login}" class="btn-style-one">Log In</a>
+    <a th:href="@{/signup}" class="btn-style-one">Sign up</a>
+</div>
+<div sec:authorize="isAuthenticated()" class="link-btn text-center text-lg-right">
+    <a th:href="@{/profile}" class="btn-style-one">profile</a>
+    <a th:href="@{/signup}" class="btn-style-one">log out</a>
+</div>
+<h1>This is the home page</h1>
+<div th:each="cat:${catList}">
+    <h3><span th:text=${cat.catalogName}></span></h3>
+<ul>
+    <li th:each="item:${cat.itemsList}"><span th:text=${item.itemName}></span></li>
+</ul>
+</div>
+</body>
+</html>

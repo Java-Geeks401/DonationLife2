@@ -1,0 +1,20 @@
+!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="charityOrganization :${charityOrganization}">
+    <ul>
+        <li>Name of the Organization : <span th:text="${charityOrganization.getName}"></span></li>
+        <li>Email of the Organization :<span th:text="${charityOrganization.getEmail}"></span></li>
+        <li> Facebook page :<span th:text="${charityOrganization.getFacebookPage}"></span></li>
+        <li>The phone number of the Organization :<span th:text="${charityOrganization.getNumber}"></span></li>
+        <li>The address of the Organization : <span th:text="${charityOrganization.getAddress}"></span></li>
+    </ul>
+
+</div>
+
+</body>
+</html>

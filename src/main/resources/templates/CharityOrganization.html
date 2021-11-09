@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>signUp</title>
+</head>
+<body>
+
+<header>
+
+</header>
+<main>
+    <form onsubmit ="return validateForm() "action="/charityOrganizationForm" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label" style="margin-left:2%"> Name:</label>
+            <input type="text" class="form-control" id="username" name="username"  style="width:25%;margin-left:2%">
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label" style="margin-left:2%">password :
+                <input style="margin-left:2%" class="form-control" name="password" id="password" type="password" onkeyup='check();' />
+                <span id = "message1" style="color:red"> </span> <br><br>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" style="margin-left:2%">confirm password:
+                <input style="margin-left:2%" class="form-control" type="password" name="confirm_password" id="confirm_password"  onkeyup='check();' />
+                <span id = "message2" style="color:red"> </span> <br><br>
+
+            </label>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label" style="margin-left:2%">Name of Org</label>
+            <input required type="text" name="name" class="form-control" id="name" style="width:25%;margin-left:2%">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label" style="margin-left:2%">Email:</label>
+            <input required type="text" name="email" class="form-control" id="email" style="width:25%;margin-left:2%">
+        </div>
+
+        <div class="mb-3">
+            <label for="facebook" class="form-label" style="margin-left:2%"> Facebook :</label>
+            <input required type="text" name="facebook" class="form-control" id="facebook" style="width:25%;margin-left:2%">
+        </div>
+        <div class="mb-3">
+            <label for="number" class="form-label" style="margin-left:2%"> phone number:</label>
+            <input  required type="text" name="number" class="form-control" id="number" style="width:25%;margin-left:2%" >
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label" style="margin-left:2%"> Address</label>
+            <input type="address" name="address" class="form-control" id="address" style="width:25%;margin-left:2%">
+        </div>
+
+        <button id="myButton" type="submit" class="btn btn-primary" style="margin-left:2%;disabled:true">Sign up</button>
+    </form>
+
+
+</main>
+<footer>
+
+</footer>
+<script>
+    function validateForm() {
+
+    var pw1 = document.getElementById("password").value;
+    var pw2 = document.getElementById("confirm_password").value;
+
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+    //minimum password length validation
+    if(pw1.length < 6) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 6 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    }
+
+ }
+
+</script>
+</body>
+</html>

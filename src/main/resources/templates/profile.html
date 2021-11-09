@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:if="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>myprofile</title>
+</head>
+<body>
+<header>
+    <h1>This is my profile page</h1>
+</header>
+
+<main>
+
+    <div  sec:authorize="hasRole('ROLE_USER')" class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${donator.firstName}"></h5>
+            <p class="card-text" th:text="${donator.lastName}"></p>
+            <p class="card-text" th:text="${donator.dateOfBirth}"></p>
+            <a href="#" class="btn btn-primary">im user</a>
+        </div>
+    </div>
+
+    <div  sec:authorize="hasRole('ROLE_ADMIN')"  class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${donator.firstName}"></h5>
+            <p class="card-text" th:text="${donator.lastName}"></p>
+            <a href="#" class="btn btn-primary">im Admin</a>
+            <a th:href="@{/dashbord}"> dash bord</a>
+        </div>
+    </div>
+
+        <div sec:authorize="hasRole('ROLE_CHARITY')"class="card" style="width: 18rem;">
+            <img th:src="@{https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU2QSuv_sWYFOPszs5B7vtsFSr_Z8kXrJwmg&usqp=CAU}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${charityOrganization.name}"></h5>
+                <p class="card-text" th:text="${charityOrganization.email}"></p>
+                <p class="card-text" th:text="${charityOrganization.facebookPage}"></p>
+                <p class="card-text" th:text="${charityOrganization.number}"></p>
+                <p class="card-text" th:text="${charityOrganization.address}"></p>
+                <!--            <a href="#" class="btn btn-primary">My Donations</a>-->
+            </div>
+        </div>
+
+
+
+</main>
+
+
+<footer>
+
+</footer>
+</body>
+</html>
