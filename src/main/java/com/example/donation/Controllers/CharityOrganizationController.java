@@ -43,8 +43,8 @@ public class CharityOrganizationController {
                                                String email,  String facebook,String number,String address){
         CharityOrganization charityOrganization=new CharityOrganization(username,passwordEncoder.encode(password),name,email,facebook,number,address);
         charityOrganizationRepositorie.save(charityOrganization);
-        Authentication authentication = new UsernamePasswordAuthenticationToken(charityOrganization, null, new ArrayList<>());
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/profile");
+//        Authentication authentication = new UsernamePasswordAuthenticationToken(charityOrganization, null, new ArrayList<>());
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return new RedirectView("/#login");
     }
 }
