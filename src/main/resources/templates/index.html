@@ -7,25 +7,17 @@
     <title>Donation=life</title>
       <link rel="shortcut icon" href="https://toppng.com/uploads/preview/ok-hand-icon-heart-in-hand-icon-11553396682sebzj2phpf.png" type="image/x-icon">
 
-<!--      <link rel="stylesheet" th:href="@{/fontawesome-5.5/css/all.min.css}" />-->
-<!--      <link rel="stylesheet" th:href="@{/slick/slick.css}"/>-->
-<!--      <link rel="stylesheet" th:href="@{/slick/slick-theme.css}"/>-->
-<!--      <link rel="stylesheet" th:href="@{/magnific-popup/magnific-popup.css}">-->
-<!--      <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />-->
-
-
           <link rel="stylesheet" th:href="@{/css/all.min.css}" />
           <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
           <link rel="stylesheet" th:href="@{/slick/slick.css}"/>
           <link rel="stylesheet" th:href="@{/slick/slick-theme.css}"/>
           <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
       <link rel="stylesheet" th:href="@{/css/tooplate-infinite-loop.css}"/>
-      <!--    <link rel="stylesheet" th:href="@{/css/templatemo-dream-pulse.css}"/>-->
-<!--      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
-<!--      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
-<!--      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-      <!------ Include the above in your HEAD tag ---------->
+
+
       <link rel="stylesheet" th:href="@{/css/signup.css}"/>
+      <link rel="stylesheet" th:href="@{/css/login.css}"/>
+
 
   </head>
   <body>    
@@ -50,8 +42,14 @@
                   <a class="nav-link tm-nav-link" href="#whatwedo">What We Do</a>
               </li>
                 <li class="nav-item">
-                    <a class="nav-link tm-nav-link" href="#whatwedo2">login</a>
+                    <a class="nav-link tm-nav-link" href="#login">Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link tm-nav-link" href="#whatwedo2">Sign-up</a>
+                </li>
+<!--                ***************************************************************************-->
+
+<!--                ***************************************************************************************-->
               <li class="nav-item">
                 <a class="nav-link tm-nav-link" href="#testimonials">Testimonials</a>
               </li>
@@ -152,8 +150,40 @@
         </div>
       
     </section>
+<!--    **************************************************************************log in form-->
+    <section id="login" class="tm-section-pad-top" >
 
-<!--    **********************************************-->
+        <div class="containerLogin">
+            <div class="container-fluid">
+                <div class="row main-content bg-success text-center">
+                    <div class="col-md-4 text-center company__info">
+                        <h4 class="company_title">Donation=Life</h4>
+                    </div>
+                    <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                        <div class="container-fluid">
+                            <div id="row1" class="row">
+                                <h2>Log In</h2>
+                            </div>
+                            <div id="row2"class="row">
+                                <form  class="form-group" action="/perform_login" method="post">
+                                    <div class="row">
+                                        <input type="text" name="username" class="form__input"  placeholder="Username" required >
+                                        <input type="password" name="password"  class="form__input" placeholder="Password" required >
+                                    </div>
+
+                                    <div id="row3" class="row">
+                                        <input type="submit" value="Sign In" class="btn">
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--    **********************************************sign up form -->
     <section id="whatwedo2" class="tm-section-pad-top" >
 
         <div class="containersinup">
@@ -421,15 +451,11 @@
         </footer>
 
     </section>
-<!--    <script th:src="@{/js/jquery-1.9.1.min.js}"></script>-->
-<!--    <script th:src="@{/slick/slick.min.js}" > </script>-->
-<!--    <script th:src="@{/magnific-popup/jquery.magnific-popup.min.js}"></script>-->
-<!--    <script th:src="@{/js/easing.min.js}"></script>-->
+
 
 
         <script th:src="@{/js/jquery.min.js}"></script>
         <script th:src="@{/js/jquery.singlePageNav.min.js}"></script>
-<!--        <script th:src="@{/js/parallax.min.js}"></script>-->
         <script th:src="@{/slick/slick.min.js}" > </script>
         <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
        <script th:src="@{/js/easing.min.js}"></script>

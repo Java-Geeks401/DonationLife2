@@ -59,12 +59,12 @@ public class DonorController {
         donorRepository.save(donator);
 //        Authentication authentication = new UsernamePasswordAuthenticationToken(donator, null, new ArrayList<>());
 //        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/login");
+        return new RedirectView("/in#login");
     }
 
-    @GetMapping("/profile2")
-    public String profile2() {
-        return "profile2";
-    }
+//    @GetMapping("/profile2")
+//    public String profile2() {
+//        return "profile2";
+//    }
 }
 
