@@ -9,6 +9,11 @@ body{
     display: block;
     margin-left: 52%;
 }
+#header{
+    background-color: #fff;
+    height: 100px;
+    margin-bottom: 7%;
+}
 
 .emp-profile{
     padding: 3%;

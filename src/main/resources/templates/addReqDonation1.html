@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yinka Enoch Adedokun">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <title>Login Page</title>
+</head>
+<body>
+<!-- Main Content -->
+<div class="container-fluid">
+    <div class="row main-content bg-success text-center">
+        <div class="col-md-4 text-center company__info">
+            <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+            <h4 class="company_title">Donation=Life</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2>Provide what you need</h2>
+                </div>
+                <div class="row">
+                    <form  class="form-group" method="post" action="/RequestDonationForm">
+                        <div class="row">
+                            <label>Description</label>
+                            <textarea rows="4" cols="50" type="text" id="Description" name="description" class="form__input" placeholder="Description" >
+
+                                </textarea>
+                        </div>
+
+                        <div class="row">
+                            <input  type="number" id="number" name="number"class="form__input" placeholder="Item Number">
+                        </div>
+<!--                        <div class="mb-3 form-check">-->
+<!--                            <input type="checkbox" class="form-check-input" id="status" name="status">-->
+<!--                            <label class="form-check-label" for="status">Request</label>-->
+<!--                        </div>-->
+
+                        <div class="row">
+                            <input type="submit" value="Request Donation" class="btn">
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+

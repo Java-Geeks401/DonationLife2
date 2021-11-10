@@ -64,7 +64,7 @@
             </a>
             <ul class="dropdown-menu dropdown-submenu">
                 <li th:each="item:${cat.itemsList}">
-                    <a  th:text=${item.itemName} class="dropdown-item" th:href="${'/donationForm/'+item.itemId}"></a>
+                    <a  th:text=${item.itemName}  th:href="${'/donationForm/'+item.itemId}"></a>
                 </li>
 
             </ul>
