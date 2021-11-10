@@ -1,9 +1,11 @@
 package com.example.donation.Controllers;
 
 import com.example.donation.Models.Admin;
+import com.example.donation.Models.Catalog;
 import com.example.donation.Models.CharityOrganization;
 import com.example.donation.Models.Donator;
 import com.example.donation.Repositories.AdminRepository;
+import com.example.donation.Repositories.CatalogRepository;
 import com.example.donation.Repositories.CharityOrganizationRepositorie;
 import com.example.donation.Repositories.DonorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class DonorController {
@@ -32,6 +35,8 @@ public class DonorController {
     AdminRepository adminRepository;
     @Autowired
     CharityOrganizationRepositorie charityOrganizationRepositorie;
+    @Autowired
+    CatalogRepository catalogRepository;
 
     @GetMapping("/profile")
     public String getMyProfilePage(Model m,Principal principal){
@@ -39,6 +44,8 @@ public class DonorController {
 
             Donator donator = donorRepository.findByUsername(principal.getName());
             CharityOrganization charityOrganization = charityOrganizationRepositorie.findByUsername(principal.getName());
+            List<Catalog> catalog= (List<Catalog>) catalogRepository.findAll();
+            m.addAttribute("catList",catalog);
             m.addAttribute("donator", donator);
             m.addAttribute("charityOrganization", charityOrganization);
             return "profile2";
@@ -59,7 +66,7 @@ public class DonorController {
         donorRepository.save(donator);
 //        Authentication authentication = new UsernamePasswordAuthenticationToken(donator, null, new ArrayList<>());
 //        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/in#login");
+        return new RedirectView("/#login");
     }
 
 //    @GetMapping("/profile2")

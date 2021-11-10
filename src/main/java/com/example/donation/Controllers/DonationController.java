@@ -49,30 +49,29 @@ public class DonationController {
     }
 // for charities form .
     @GetMapping("/openform")
-    public String openForm(){
-        return "addReqDonation";
-    }
 
-
-    @GetMapping("/dropList")
-    public String getDropList(Model model){
+    public String openForm(Model m){
         List<Catalog> catalog= (List<Catalog>) catalogRepository.findAll();
-        model.addAttribute("catList",catalog);
-        return "dropList";
+        m.addAttribute("catList",catalog);
+        return "addReqDonation1";
     }
+
 
     @GetMapping("/donationForm/{id}")
     public String getDonation(Model model, @PathVariable int id){
         CatalogItem catalogItem=catalogItemRepository.findById(id).get();
         model.addAttribute("itemId",catalogItem);
-        return "addDonation";
+        List<Catalog> catalog= (List<Catalog>) catalogRepository.findAll();
+        model.addAttribute("catList",catalog);
+
+        return "addDonation1";
     }
 
     // for req donation from charities
     @PostMapping("/RequestDonationForm")
-    public RedirectView addingRequest(String description, boolean status, Principal principal,int number) {
+    public RedirectView addingRequest(String description, Principal principal,  int id) {
         CharityOrganization charityOrganization=charityOrganizationRepositorie.findByUsername(principal.getName());
-        CatalogItem donationItem=catalogItemRepository.findById(number).get();
+        CatalogItem donationItem=catalogItemRepository.findById(id).get();
         DonationReq requestDonate=new DonationReq(description,charityOrganization,donationItem);
         requestDonateRepository.save(requestDonate);
         return new RedirectView("/charityRequests");

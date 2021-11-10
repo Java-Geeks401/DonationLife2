@@ -5,39 +5,61 @@
     <title>Title</title>
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
   <link rel="stylesheet" th:href="@{/css/profile2.css}"/>
+  <link rel="stylesheet" th:href="@{/css/templatemo-style.css}"/>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
-<nav  class="navbar navbar-expand-md tm-navbar" id="profileNave">
-  <div class="container">
-    <div class="tm-next">
-      <a href="#infinite" class="navbar-brand">Donation=Life</a>
+<div class="wrap">
+  <header id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <button id="primary-nav-button" type="button">Menu</button>
+          <div class="logo" style="width:221px;margin-top:18px">
+            <img  src="img/logo.png" alt="Venue Logo">
+          </div></a>
+          <nav id="primary-nav" class="dropdown cf">
+            <ul class="dropdown menu">
+              <li>
+                <a class="nav-link tm-nav-link" href="/">Home</a>
+              </li>
+              <li>
+                <a class="nav-link tm-nav-link" href="/profile">profile</a>
+              </li>
+              <li><a href="#">Add Donation</a>
+                <ul class="sub-menu" sec:authorize="hasRole('ROLE_USER')">
+                  <li th:each="cat:${catList}">
+                    <a th:text=${cat.catalogName}  href="#"></a>
+                    <ul class="sub-menu">
+                      <li th:each="item:${cat.itemsList}">
+                        <a  th:text=${item.itemName}  th:href="${'/donationForm/'+item.itemId}">  </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+<!--                ******************************************************************-->
+                <ul class="sub-menu" sec:authorize="hasRole('ROLE_CHARITY')" >
+                  <li th:each="cat:${catList}">
+                    <a th:text=${cat.catalogName}  href="#"></a>
+                    <ul class="sub-menu">
+                      <li th:each="item:${cat.itemsList}">
+                        <a  th:text=${item.itemName}  th:href="${'/donationForm/'+item.itemId}">  </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+<!--                **************************************************************************************-->
+              </li>
+              <li >
+                <a class="nav-link tm-nav-link" href="/perform_logout">Logout</a>
+              </li>
+            </ul>
+          </nav><!-- / #primary-nav -->
+        </div>
+      </div>
     </div>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="/login">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="#whatwedo">What We Do</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="/perform_logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="#testimonials">Testimonials</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="#gallery">Gallery</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link tm-nav-link" href="#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+  </header>
+</div>
 
 
 <div class="profile-main-div" sec:authorize="hasRole('ROLE_USER')" >
@@ -208,5 +230,10 @@
 </div>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/jquery.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script th:src="@{/js/datepicker.js}"></script>
+<script th:src="@{/js/plugins.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>
