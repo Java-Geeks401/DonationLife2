@@ -19,8 +19,8 @@ public class CatalogController {
     @Autowired
     CatalogItemRepository catalogItemRepository;
 //
-//    @GetMapping("/addCat")
-//        public String addCat(){
+    @GetMapping("/addCat")
+        public String addCat(){
 //        Catalog catalog = new Catalog("kitchen");
 //        Catalog catalog2 = new Catalog("furniture");
 //        catalogRepository.save(catalog);
@@ -33,8 +33,8 @@ public class CatalogController {
 //        catalogItemRepository.save(catalogItem1);
 //        catalogItemRepository.save(catalogItem2);
 //        catalogItemRepository.save(catalogItem3);
-//        return "addedPAge";
-//    }
+        return "addedPage";
+    }
 
 //    @PostMapping("/admin/addCatalog")
 //    public String addCatalog( @RequestParam(value = "name") String name){

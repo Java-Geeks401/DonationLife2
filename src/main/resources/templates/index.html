@@ -1,25 +1,794 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Donation=life</title>
+      <link rel="shortcut icon" href="https://toppng.com/uploads/preview/ok-hand-icon-heart-in-hand-icon-11553396682sebzj2phpf.png" type="image/x-icon">
 
-<div sec:authorize="!isAuthenticated()" class="link-btn text-center text-lg-right">
-    <a th:href="@{/login}" class="btn-style-one">Log In</a>
-    <a th:href="@{/signup}" class="btn-style-one">Sign up</a>
-</div>
-<div sec:authorize="isAuthenticated()" class="link-btn text-center text-lg-right">
-    <a th:href="@{/profile}" class="btn-style-one">profile</a>
-    <a th:href="@{/signup}" class="btn-style-one">log out</a>
-</div>
-<h1>This is the home page</h1>
-<div th:each="cat:${catList}">
-    <h3><span th:text=${cat.catalogName}></span></h3>
-<ul>
-    <li th:each="item:${cat.itemsList}"><span th:text=${item.itemName}></span></li>
-</ul>
-</div>
-</body>
+          <link rel="stylesheet" th:href="@{/css/all.min.css}" />
+          <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+          <link rel="stylesheet" th:href="@{/slick/slick.css}"/>
+          <link rel="stylesheet" th:href="@{/slick/slick-theme.css}"/>
+          <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+      <link rel="stylesheet" th:href="@{/css/tooplate-infinite-loop.css}"/>
+
+
+      <link rel="stylesheet" th:href="@{/css/signup.css}"/>
+      <link rel="stylesheet" th:href="@{/css/login.css}"/>
+
+
+  </head>
+  <body>    
+    <!-- Hero section -->
+    <section id="infinite" class="text-white tm-font-big tm-parallax">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+        <div class="container">   
+          <div class="tm-next">
+              <a href="#infinite" class="navbar-brand">Donation=Life</a>
+          </div>             
+            
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#infinite">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#whatwedo">What We Do</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link tm-nav-link" href="#login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link tm-nav-link" href="#whatwedo2">Sign-up</a>
+                </li>
+<!--                ***************************************************************************-->
+
+<!--                ***************************************************************************************-->
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#testimonials">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#gallery">Gallery</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="#contact">Contact</a>
+              </li>                    
+            </ul>
+          </div>        
+        </div>
+      </nav>
+      
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            <h2 class="tm-hero-title">Donation=Life</h2>
+            <p class="tm-hero-subtitle">
+                Many Are In Need Of Your Helping Hand.
+              <br>Just A Little Help Can Make Their Hearts Happier.
+            </p>
+        </div>        
+      </div>
+
+      <div class="tm-next tm-intro-next">
+        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+        </a>
+      </div>      
+    </section>
+
+    <section id="whatwedo" class="tm-section-pad-top">
+      
+      <div class="container">
+
+            <div class="row tm-content-box"><!-- first row -->
+                <div class="col-lg-12 col-xl-12">
+                    <div class="tm-intro-text-container">
+                        <h2 class="tm-text-primary mb-4 tm-section-title">What We Do</h2>
+                        <p class="mb-4 tm-intro-text">
+                            Our website allows people to donate to poor people and Charity organizations by classifying donation into groups
+                            so that it is easier for the poor people to get what they want and verify that the donations match the needs of the
+                            poor people and allows people to select the charity they want to donate to.                    </div>
+                </div>
+
+            </div><!-- first row -->
+            
+            <div class="row tm-content-box"><!-- second row -->
+        		<div class="col-lg-1">
+                    <i class="far fa-3x fa-eye tm-icon"></i>
+                </div>
+                <div class="col-lg-5">
+                    <div class="tm-intro-text-container">
+                        <h2 class="tm-text-primary mb-4">Our Vision</h2>
+                        <p class="mb-4 tm-intro-text">
+                            We envision a future in which all people can pursue the opportunities they choose, raise healthier families, and can live normal life .                    </div>
+                </div>
+                
+                <div class="col-lg-1">
+                    <i class="far fa-3x fa-dot-circle tm-icon"></i>
+                </div>
+                <div class="col-lg-5">
+                    <div class="tm-intro-text-container">
+                        <h2 class="tm-text-primary mb-4">Our Mission</h2>
+                        <p class="mb-4 tm-intro-text">
+                            The <strong> Donation-Equal-Life</strong> mission is to improve the living situation of the poor,
+                            provide them with their basic needs and have their right to live in a dignified life.                    </div>
+                </div>
+
+            </div><!-- second row -->
+            
+            <div class="row tm-content-box"><!-- third row -->
+        		<div class="col-lg-1">
+                    <i class="fas fa-3x fa-history text-center tm-icon"></i>
+                </div>
+                <div class="col-lg-5">
+                    <div class="tm-intro-text-container">
+                        <h2 class="tm-text-primary mb-4">Our History</h2>
+                        <p class="mb-4 tm-intro-text">
+                            <strong> Donation-Equal-Life</strong> We started from September 2021 with 5 programmers and we aspire to increase the number of the
+                            team to include customer service so that it is easy to communicate with us to increase project ideas</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-1">
+                    <i class="fas fa-3x fa-users text-center tm-icon"></i>
+                </div>
+                <div class="col-lg-5">
+                    <div class="tm-intro-text-container">
+                      <h2 class="tm-text-primary mb-4">Social Work</h2>
+                        <p class="mb-4 tm-intro-text">
+                            Through our application, we work to connect donors to charity organizations, which in turn seek to meet the needs of the poor and thus reduce poverty in society and improve the lives of peoples in it.   </p>
+                    </div>
+                </div>
+
+            </div><!-- third row -->
+
+        </div>
+      
+    </section>
+<!--    **************************************************************************log in form-->
+    <section id="login" class="tm-section-pad-top" >
+
+        <div class="containerLogin">
+            <div class="container-fluid">
+                <div class="row main-content bg-success text-center">
+                    <div class="col-md-4 text-center company__info">
+                        <h4 class="company_title">Donation=Life</h4>
+                    </div>
+                    <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                        <div class="container-fluid">
+                            <div id="row1" class="row">
+                                <h2>Log In</h2>
+                            </div>
+                            <div id="row2"class="row">
+                                <form  class="form-group" action="/perform_login" method="post">
+                                    <div class="row">
+                                        <input type="text" name="username" class="form__input"  placeholder="Username" required >
+                                        <input type="password" name="password"  class="form__input" placeholder="Password" required >
+                                    </div>
+
+                                    <div id="row3" class="row">
+                                        <input type="submit" value="Sign In" class="btn">
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--    **********************************************sign up form -->
+    <section id="whatwedo2" class="tm-section-pad-top" >
+
+        <div class="containersinup">
+            <div class="overlay" id="overlay">
+                <div class="sign-in" id="sign-in">
+                    <!--                <h1>Sign-up as Charity</h1>-->
+                    <button class="switch-button" id="slide-right-button">Charity Sign-up</button>
+                </div>
+                <div class="sign-up" id="sign-up">
+                    <button class="switch-button" id="slide-left-button">Donator Sign-Up</button>
+                </div>
+            </div>
+            <div class="form">
+                <div class="sign-in" id="sign-in-info">
+                    <h1>Charity Sign-up</h1>
+
+                    <form id="sign-in-form" onsubmit ="return validateForm2()"action="/charityOrganizationForm" method="post">
+
+                        <input required type="text" placeholder="Username"  id="username" name="username"  >
+                        <label>
+                            <input required placeholder="Password" name="password" id="passwordCharity" type="password" onkeyup='check();' />
+                            <span id = "message3" style="color:red"> </span>
+                        </label>
+                        <label >
+                            <input required placeholder="Confirm password" type="password" name="confirm_password" id="confirm_passwordCharity"  onkeyup='check();' />
+                            <span id = "message4" style="color:red"> </span>
+
+                        </label>
+
+                        <input required placeholder="Name of Organization" type="text" name="name" >
+
+                        <input required placeholder="Email" type="email" name="email" >
+
+                        <input required placeholder="Facebook" type="text" name="facebook" >
+
+                        <input  required placeholder="Phone Number" type="text" name="number"  >
+
+                        <input placeholder="Address" type="address" name="address">
+                        <button class="control-button up">Sign up</button>
+                    </form>
+                </div>
+                <div class="sign-up" id="sign-up-info">
+                    <h1>Donor Sign-up</h1>
+                    <form id="sign-up-form" onsubmit ="return validateForm1() " method="POST" action="/signup">
+                        <input required type="text" placeholder="Username" name="username"/>
+                        <input type="text" placeholder="First Name" required name="firstName"  id="firstName"/>
+                        <input type="text" placeholder="Last Name" required name="lastName" id="lastName"/>
+                        <input required type="email" placeholder="Email" name="email"/>
+                        <input required type="number" placeholder="Phone Number" name="PhoneNumber"/>
+                        <label class="form-label">
+                            <input required type="password" placeholder="Password" name="password" id="password"  onkeyup='check();'/>
+                            <br><span id = "message1" style="color:red;font-size:10Px"></span>
+                        </label>
+
+                        <label class="form-label">
+                            <input required type="password" placeholder="Confirm password" name="confirm_password" id="confirm_password"  onkeyup='check();'/>
+                            <br><span id = "message2" style="color:red;font-size:10Px"> </span>
+                        </label>
+
+                        <input required type="date" placeholder="Birth of Date" name="dateOfBirth" id="dateOfBirth" />
+                        <button class="control-button up">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--    *************************************************************-->
+    <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
+      <div class="container tm-testimonials-content">
+        <div class="row">
+          <div class="col-lg-12 tm-content-box">
+            <h2 class="text-white text-center mb-4 tm-section-title">Testimonials</h2>
+            <p class="mx-auto tm-section-desc text-center">
+                Nulla dictum sem non eros euismod, eu placerat tortor lobortis. Suspendisse id velit eu libero pellentesque interdum. Etiam quis congue eros.
+              </p>
+            <div class="mx-auto tm-gallery-container tm-gallery-container-2">
+              <div class="tm-testimonials-carousel">
+                <figure class="tm-testimonial-item">
+                  <img src="img/testimonial-img-01.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
+                  <figcaption>Catherine Win (Designer)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="img/testimonial-img-02.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Testimonial section comes with carousel items. You can use Infinite Loop HTML CSS template for your websites.</blockquote>
+                  <figcaption>Dual Rocker (CEO)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="img/testimonial-img-03.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Nulla finibus ligula nec tortor convallis tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus.</blockquote>
+                  <figcaption>Sandar Soft (Marketing)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="img/testimonial-img-04.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Curabitur rutrum pharetra lobortis. Pellentesque vehicula, velit quis eleifend fermentum, erat arcu aliquet neque.</blockquote>
+                  <figcaption>Oliva Htoo (Designer)</figcaption>
+                </figure>
+
+                <figure class="tm-testimonial-item">
+                  <img src="img/testimonial-img-02.jpg" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Integer sit amet risus et erat imperdiet finibus. Nam lacus nunc, vulputate id ex eget, euismod auctor augue.</blockquote>
+                  <figcaption>Jacob Joker (CTO)</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tm-bg-overlay"></div>
+    </section>
+    
+    <section id="gallery" class="tm-section-pad-top">
+      <div class="container tm-container-gallery">
+        <div class="row">
+          <div class="text-center col-12">
+              <h2 class="tm-text-primary tm-section-title mb-4">Gallery</h2>
+              <p class="mx-auto tm-section-desc">
+                Praesent sed pharetra lorem, blandit convallis mi. Aenean ornare elit ac metus lacinia, sed iaculis nibh semper. Pellentesque est urna, lobortis eu arcu a, aliquet tristique urna.
+              </p>
+          </div>            
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="mx-auto tm-gallery-container">
+                    <div class="grid tm-gallery">
+                      <a href="img/gallery-img-01.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-01.jpg" alt="Image 1" class="img-fluid">
+                          <figcaption>
+                            <h2><i>Physical Health <span>Exercise!</span></i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-02.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-02.jpg" alt="Image 2" class="img-fluid">
+                          <figcaption>
+                            <h2><i>Rain on Glass <span>Second Image</span></i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-03.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-03.jpg" alt="Image 3" class="img-fluid">
+                          <figcaption>
+                            <h2><i><span>Sea View</span> Mega City</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-04.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-04.jpg" alt="Image 4" class="img-fluid">
+                          <figcaption>
+                            <h2><i>Dream Girl <span>Thoughts</span></i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-05.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-05.jpg" alt="Image 5" class="img-fluid">
+                          <figcaption>
+                            <h2><i><span>Workstation</span> Offices</i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-06.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-06.jpg" alt="Image 6" class="img-fluid">
+                          <figcaption>
+                            <h2><i>Just Above <span>The City</span></i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-01.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-01.jpg" alt="Image 7" class="img-fluid">
+                          <figcaption>
+                            <h2><i>Another <span>Exercise Time</span></i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <a href="img/gallery-img-02.jpg">
+                        <figure class="effect-honey tm-gallery-item">
+                          <img src="img/gallery-tn-02.jpg" alt="Image 8" class="img-fluid">
+                          <figcaption>
+                            <h2><i>Repeated <span>Image Spot</span></i></h2>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                </div>                
+            </div>        
+          </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+    
+      <div class="container tm-container-contact">
+        
+        <div class="row">
+            
+            <div class="text-center col-12">
+                <h2 class="tm-section-title mb-4">Contact Us</h2>
+                <p class="mb-5">
+                  Proin enim orci, tincidunt quis suscipit in, placerat nec est. Vestibulum posuere faucibus posuere. Quisque aliquam velit eget leo blandit egestas. Nulla id posuere felis, quis tristique nulla.
+                </p><br>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+              <form action="" method="get">
+                <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
+                <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
+                <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
+                <button type="submit" class="btn tm-btn-submit">Submit</button>
+              </form>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+
+                <div class="contact-item">
+                  <a rel="nofollow" href="https://www.tooplate.com/contact" class="item-link">
+                      <i class="far fa-2x fa-comment mr-4"></i>
+                      <span class="mb-0">Chat Online</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="mailto:mail@company.com" class="item-link">
+                      <i class="far fa-2x fa-envelope mr-4"></i>
+                      <span class="mb-0">mail@company.com</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="https://www.google.com/maps" class="item-link">
+                      <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
+                      <span class="mb-0">Our Location</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">
+                  <a rel="nofollow" href="tel:0100200340" class="item-link">
+                      <i class="fas fa-2x fa-phone-square mr-4"></i>
+                      <span class="mb-0">255-662-5566</span>
+                  </a>              
+                </div>
+                
+                <div class="contact-item">&nbsp;</div>
+            
+            </div>
+            
+            
+        </div><!-- row ending -->
+        
+      </div>
+
+      	<footer class="text-center small tm-footer">
+          <p class="mb-0">
+          Copyright &copy; 2021 Donation Equal Life
+        </footer>
+
+    </section>
+
+
+
+        <script th:src="@{/js/jquery.min.js}"></script>
+        <script th:src="@{/js/jquery.singlePageNav.min.js}"></script>
+        <script th:src="@{/slick/slick.min.js}" > </script>
+        <script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+       <script th:src="@{/js/easing.min.js}"></script>
+       <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <script>
+
+      function getOffSet(){
+        var _offset = 450;
+        var windowHeight = window.innerHeight;
+
+        if(windowHeight > 500) {
+          _offset = 400;
+        } 
+        if(windowHeight > 680) {
+          _offset = 300
+        }
+        if(windowHeight > 830) {
+          _offset = 210;
+        }
+
+        return _offset;
+      }
+
+      function setParallaxPosition($doc, multiplier, $object){
+        var offset = getOffSet();
+        var from_top = $doc.scrollTop(),
+          bg_css = 'center ' +(multiplier * from_top - offset) + 'px';
+        $object.css({"background-position" : bg_css });
+      }
+
+      // Parallax function
+      // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+      var background_image_parallax = function($object, multiplier, forceSet){
+        multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+        multiplier = 1 - multiplier;
+        var $doc = $(document);
+        // $object.css({"background-attatchment" : "fixed"});
+
+        if(forceSet) {
+          setParallaxPosition($doc, multiplier, $object);
+        } else {
+          $(window).scroll(function(){          
+            setParallaxPosition($doc, multiplier, $object);
+          });
+        }
+      };
+
+      var background_image_parallax_2 = function($object, multiplier){
+        multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+        multiplier = 1 - multiplier;
+        var $doc = $(document);
+        $object.css({"background-attachment" : "fixed"});
+        
+        $(window).scroll(function(){
+          if($(window).width() > 768) {
+            var firstTop = $object.offset().top,
+                pos = $(window).scrollTop(),
+                yPos = Math.round((multiplier * (firstTop - pos)) - 186);              
+
+            var bg_css = 'center ' + yPos + 'px';
+
+            $object.css({"background-position" : bg_css });
+          } else {
+            $object.css({"background-position" : "center" });
+          }
+        });
+      };
+      
+      $(function(){
+        // Hero Section - Background Parallax
+        background_image_parallax($(".tm-parallax"), 0.30, false);
+        background_image_parallax_2($("#contact"), 0.80);   
+        background_image_parallax_2($("#testimonials"), 0.80);   
+        
+        // Handle window resize
+        window.addEventListener('resize', function(){
+          background_image_parallax($(".tm-parallax"), 0.30, true);
+        }, true);
+
+        // Detect window scroll and update navbar
+        $(window).scroll(function(e){          
+          if($(document).scrollTop() > 120) {
+            $('.tm-navbar').addClass("scroll");
+          } else {
+            $('.tm-navbar').removeClass("scroll");
+          }
+        });
+        
+        // Close mobile menu after click 
+        $('#tmNav a').on('click', function(){
+          $('.navbar-collapse').removeClass('show'); 
+        })
+
+        // Scroll to corresponding section with animation
+        $('#tmNav').singlePageNav({
+          'easing': 'easeInOutExpo',
+          'speed': 600
+        });        
+        
+        // Add smooth scrolling to all links
+        // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
+        $("a").on('click', function(event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 600, 'easeInOutExpo', function(){
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+
+        // Pop up
+        $('.tm-gallery').magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          gallery: { enabled: true }
+        });
+
+        $('.tm-testimonials-carousel').slick({
+          dots: true,
+          prevArrow: false,
+          nextArrow: false,
+          infinite: false,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 2
+              }
+            }, 
+            {
+              breakpoint: 480,
+              settings: {
+                  slidesToShow: 1
+              }                 
+            }
+          ]
+        });
+
+        // Gallery
+        $('.tm-gallery').slick({
+          dots: true,
+          infinite: false,
+          slidesToShow: 5,
+          slidesToScroll: 2,
+          responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+        });
+      });
+    </script>
+    <script>
+
+
+var overlay = document.getElementById("overlay");
+
+// Buttons to 'switch' the page
+var openSignUpButton = document.getElementById("slide-left-button");
+var openSignInButton = document.getElementById("slide-right-button");
+
+// The sidebars
+var leftText = document.getElementById("sign-in");
+var rightText = document.getElementById("sign-up");
+
+// The forms
+var accountForm = document.getElementById("sign-in-info")
+var signinForm = document.getElementById("sign-up-info");
+
+// Open the Sign Up page
+openSignUp = () =>{
+  // Remove classes so that animations can restart on the next 'switch'
+  leftText.classList.remove("overlay-text-left-animation-out");
+  overlay.classList.remove("open-sign-in");
+  rightText.classList.remove("overlay-text-right-animation");
+  // Add classes for animations
+  accountForm.className += " form-left-slide-out"
+  rightText.className += " overlay-text-right-animation-out";
+  overlay.className += " open-sign-up";
+  leftText.className += " overlay-text-left-animation";
+  // hide the sign up form once it is out of view
+  setTimeout(function(){
+    accountForm.classList.remove("form-left-slide-in");
+    accountForm.style.display = "none";
+    accountForm.classList.remove("form-left-slide-out");
+  }, 700);
+  // display the sign in form once the overlay begins moving right
+  setTimeout(function(){
+    signinForm.style.display = "flex";
+    signinForm.classList += " form-right-slide-in";
+  }, 200);
+}
+
+// Open the Sign In page
+openSignIn = () =>{
+  // Remove classes so that animations can restart on the next 'switch'
+  leftText.classList.remove("overlay-text-left-animation");
+  overlay.classList.remove("open-sign-up");
+  rightText.classList.remove("overlay-text-right-animation-out");
+  // Add classes for animations
+  signinForm.classList += " form-right-slide-out";
+  leftText.className += " overlay-text-left-animation-out";
+  overlay.className += " open-sign-in";
+  rightText.className += " overlay-text-right-animation";
+  // hide the sign in form once it is out of view
+  setTimeout(function(){
+    signinForm.classList.remove("form-right-slide-in")
+    signinForm.style.display = "none";
+    signinForm.classList.remove("form-right-slide-out")
+  },500);
+  // display the sign up form once the overlay begins moving left
+  setTimeout(function(){
+    accountForm.style.display = "flex";
+    accountForm.classList += " form-left-slide-in";
+  },200);
+}
+
+// When a 'switch' button is pressed, switch page
+
+openSignUpButton.addEventListener("click", openSignUp, false);
+openSignInButton.addEventListener("click", openSignIn, false);
+
+</script>
+
+    <script>
+// validate
+
+    function validateForm1() {
+
+    var pw1 = document.getElementById("password").value;
+    var pw2 = document.getElementById("confirm_password").value;
+
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+    //minimum password length validation
+    if(pw1.length < 6) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 6 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    }
+
+ }
+</script>
+<script>
+  function validateForm2() {
+
+    var pw1 = document.getElementById("passwordCharity").value;
+    var pw2 = document.getElementById("confirm_passwordCharity").value;
+
+    if(pw1 == "") {
+      document.getElementById("message3").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+    if(pw2 == "") {
+      document.getElementById("message4").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+    //minimum password length validation
+    if(pw1.length < 6) {
+      document.getElementById("message3").innerHTML = "**Password length must be atleast 6 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message3").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message4").innerHTML = "**Passwords are not same";
+      return false;
+    }
+
+ }
+</script>
+  </body>
 </html>

@@ -23,8 +23,14 @@ public class HomeController {
     }
 
     @GetMapping("/login")
+
     public String getLoginPage() {
-        return "login";
+        return "login1";
+    }
+
+    @GetMapping("/indexin")
+    public String indexINp() {
+        return "indexin";
     }
 
 }

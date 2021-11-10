@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/profile2.css}"/>
+</head>
+<body>
+<nav  class="navbar navbar-expand-md tm-navbar" id="profileNave">
+  <div class="container">
+    <div class="tm-next">
+      <a href="#infinite" class="navbar-brand">Donation=Life</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="/login">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="#whatwedo">What We Do</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="/perform_logout">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="#testimonials">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="#gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tm-nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="profile-main-div" sec:authorize="hasRole('ROLE_USER')" >
+<div class="container emp-profile">
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-head">
+          <h5 th:text="${donator.username}">
+
+          </h5>
+          <h6>
+            <br/>
+          </h6>
+          <p> <br/></p>
+<!--          id="myTab1"=====>id="myTab"-->
+          <ul class="nav nav-tabs" id="myTab1" role="tablist">
+            <li class="nav-item">
+              <p >About</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+<!--        id="myTabContent1"====>id="myTabContent"-->
+        <div class="tab-content profile-tab" id="myTabContent1">
+<!--          id="home1"=======>id="home"-->
+          <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">
+            <div class="row">
+              <div class="col-md-6">
+                <label>First Name:</label>
+              </div>
+              <div class="col-md-6">
+                <p th:text="${donator.firstName}"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Last Name:</label>
+              </div>
+              <div class="col-md-6">
+                <p th:text="${donator.lastName}"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Email:</label>
+              </div>
+              <div class="col-md-6">
+<!--                <p th:text="${donator.email}"></p>-->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Phone Number:</label>
+              </div>
+              <div class="col-md-6">
+<!--                <p th:text="${donator.phoneNumber}"></p>-->
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Date Of Birth:</label>
+              </div>
+              <div class="col-md-6">
+                <p  th:text="${donator.dateOfBirth}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+<!--***********************************************************************************************************-->
+<!--Role-charity-->
+<div class="profile-main-div" sec:authorize="hasRole('ROLE_CHARITY')" >
+  <div class="container emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <img src="https://previews.123rf.com/images/sokolfly/sokolfly1806/sokolfly180600162/104544767-ve[…]nization-volunteer-center-and-fundraising-event-donatio.jpg" alt=""/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h5 th:text="${charityOrganization.name}">
+
+            </h5>
+            <h6>
+              <br/>
+            </h6>
+            <p> <br/></p>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <p >About</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<!--              <div class="row">-->
+<!--                <div class="col-md-6">-->
+<!--                  <label>First Name:</label>-->
+<!--                </div>-->
+<!--                <div class="col-md-6">-->
+<!--                  <p th:text="${donator.firstName}"></p>-->
+<!--                </div>-->
+<!--              </div>-->
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Facebook Page:</label>
+                </div>
+                <div class="col-md-6">
+                  <p th:text="${charityOrganization.facebookPage}"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Email:</label>
+                </div>
+                <div class="col-md-6">
+                  <p th:text="${charityOrganization.email}"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Phone Number:</label>
+                </div>
+                <div class="col-md-6">
+         <p th:text="${charityOrganization.number}"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Address:</label>
+                </div>
+                <div class="col-md-6">
+                  <p  th:text="${charityOrganization.address}"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+</body>
+</html>

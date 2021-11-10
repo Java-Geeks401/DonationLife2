@@ -95,6 +95,7 @@ public class DonationController {
         donationReqFinished.setStatus(false);
         donationRepository.save(donationFinished);
         requestDonateRepository.save(donationReqFinished);
+
         return new RedirectView("/pageOfDonation");
     }
 }

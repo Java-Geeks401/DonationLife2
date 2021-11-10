@@ -41,7 +41,7 @@ public class DonorController {
             CharityOrganization charityOrganization = charityOrganizationRepositorie.findByUsername(principal.getName());
             m.addAttribute("donator", donator);
             m.addAttribute("charityOrganization", charityOrganization);
-            return "profile";
+            return "profile2";
         }
         catch(Exception e){
             return "profile";
@@ -49,7 +49,7 @@ public class DonorController {
     }
     @GetMapping("/signup")
     public String getSignUpPage() {
-        return "signup";
+        return "signup1";
     }
 
     @PostMapping("/signup")
@@ -59,6 +59,12 @@ public class DonorController {
         donorRepository.save(donator);
 //        Authentication authentication = new UsernamePasswordAuthenticationToken(donator, null, new ArrayList<>());
 //        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new RedirectView("/login");
+        return new RedirectView("/in#login");
     }
+
+//    @GetMapping("/profile2")
+//    public String profile2() {
+//        return "profile2";
+//    }
 }
+
