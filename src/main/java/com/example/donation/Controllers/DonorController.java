@@ -61,8 +61,8 @@ public class DonorController {
 
     @PostMapping("/signup")
     public RedirectView postDonate( String username, String password, String firstName,
-                                   String lastName,String dateOfBirth){
-        Donator donator=new Donator(username,passwordEncoder.encode(password),firstName,lastName,dateOfBirth);
+                                   String lastName,String dateOfBirth,String PhoneNumber,String email){
+        Donator donator=new Donator(username,passwordEncoder.encode(password),firstName,lastName,dateOfBirth,PhoneNumber,email);
         donorRepository.save(donator);
 //        Authentication authentication = new UsernamePasswordAuthenticationToken(donator, null, new ArrayList<>());
 //        SecurityContextHolder.getContext().setAuthentication(authentication);

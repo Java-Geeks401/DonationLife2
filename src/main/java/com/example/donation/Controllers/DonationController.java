@@ -37,7 +37,7 @@ public class DonationController {
         Donation donation= new Donation( description,donationItem,donator);
 //        donation.getDonationsItems().getDonationReqList()
         donationRepository.save(donation);
-     return new RedirectView("/pageOfDonation");
+     return new RedirectView("/myPage");
     }
 
     @GetMapping("/pageOfDonation")

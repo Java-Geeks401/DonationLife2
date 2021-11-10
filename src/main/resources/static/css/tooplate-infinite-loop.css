@@ -1,4 +1,4 @@
-/*
+
 
 Tooplate 2117 Infinite Loop
 
@@ -517,7 +517,7 @@ figure.effect-honey:hover h2 i {
   background-image: url(../img/infinite-loop-03.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 980px;
+  min-height: 800px;
   position: relative;
   padding-bottom: 50px;
   padding-top: 100px;

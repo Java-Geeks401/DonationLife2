@@ -21,6 +21,8 @@ public class Donator implements UserDetails {
     private String password;
     private String firstName;
     private String lastName;
+    private String email;
+    private String phoneNumber;
     private String dateOfBirth;
     private String authority = "ROLE_USER";
     @OneToMany(mappedBy = "donatorItems")
@@ -30,12 +32,30 @@ public class Donator implements UserDetails {
 
     }
 
-    public Donator(String username, String password, String firstName, String lastName, String dateOfBirth) {
+    public Donator(String username, String password, String firstName, String lastName, String dateOfBirth,String phoneNumber,String email) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public List<Donation> getDonatorList() {

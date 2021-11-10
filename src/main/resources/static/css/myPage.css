@@ -1,11 +1,168 @@
-/*
+.card-block .btn-outline-primary {
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
 
-Venue Template
+.card {
+  margin: 20px 0;
+}
+.mycrd{
+background:#264266;
+}
+.btn{
+    background: white;
+    color: #264266;
+}
+/* Flip Cards CSS */
+.card-container {
+  perspective: 700px;
+      width: 286%;
+}
+.card-flip {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  height: auto;
+  transition: all 0.5s ease-out;
+  border: none;
+  color:white;
+  front-size:16px;
+}
 
-http://www.templatemo.com/tm-522-venue
+.card-flip div {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+.img{
+ margin-top: 15px;
+ height: 100px;
+ width: 100px;
+}
+.card-flip .front {
+  position: relative;
+  z-index: 1;
+}
 
-*/
+.card-flip .back {
+  position: relative;
+  z-index: 0;
+  transform: rotateY(-180deg);
+}
 
+.card-container:hover .card-flip {
+  transform: rotateY(180deg);
+}
+h1{
+margin-left: 12.4%;
+}
+
+#finish{
+overflow:auto;
+height: fit-content;
+ max-height: 30rem;
+    margin-bottom: 50px;
+    box-shadow: 0px 3px 8px;
+    background: white;
+}
+#first{
+overflow:auto;
+height: fit-content;
+ max-height: 30rem;
+    margin-bottom: 50px;
+    box-shadow: 0px 3px 8px;
+    background: white;
+}
+
+
+#first::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 15px
+}
+
+#first::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #181D31;
+    border-radius: 15px
+}
+
+#first::-webkit-scrollbar-thumb
+{
+    background-color: #181D31;
+    border: 2px solid #181D31;
+    border-radius: 15px
+}
+
+#finish::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 15px
+}
+
+#finish::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #181D31;
+    border-radius: 15px
+}
+
+#finish::-webkit-scrollbar-thumb
+{
+    background-color: #181D31;
+    border: 2px solid #181D31;
+    border-radius: 15px
+}
+
+#donation::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 15px
+}
+
+#donation::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #181D31;
+    border-radius: 15px
+}
+
+#donation::-webkit-scrollbar-thumb
+{
+    background-color: #181D31;
+    border: 2px solid #181D31;
+    border-radius: 15px
+}
+
+#donation{
+overflow:auto;
+height: fit-content;
+ max-height:35rem;
+    margin-bottom: 50px;
+    box-shadow: 0px 3px 8px;
+    background: white;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    background: white;
+}
+.DonationTaken{
+width:33%;
+
+}
+h3{
+    margin-left: 192px;
+}
 body {
   font-family: 'Raleway', 'sans-serif';
   background-color: #fff;
@@ -71,7 +228,7 @@ section {
 
 /* Header Style */
 
-.cf:before, 
+.cf:before,
 .cf:after {
   content: '';
   display: table;
@@ -875,371 +1032,4 @@ section.contact .section-heading {
 
 .wrapper {
   text-align: center;
-}
-
-/* Modal button */
-.modal-btn {
-  display: inline-block;
-  background-color: #4883ff;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 10px 16px;
-  text-decoration: none;
-  border: 2px solid #4883ff;
-  transition: all 0.5s;
-}
-.modal-btn:hover {
-  background-color: transparent;
-  color: #4883ff;
-}
-
-/* Modal */
-.modal {
-  background-color: rgba(0,0,0,.65);
-  display: none;
-  overflow: auto;
-  position: fixed;
-  z-index: 1000;
-  padding-top: 10%;
-  padding-bottom: 10%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.modal-content .section-heading {
-  text-align: left;
-  margin-top: 0px!important;
-}
-.modal-content .section-heading h2 {
-  margin-top: 10px;
-}
-
-.modal-content .left-content {
-  padding: 30px;
-}
-
-.modal-content .left-content input {
-  border-radius: 0px;
-  padding-left: 15px;
-  font-size: 13px;
-  color: #aaa;
-  background-color: #f4f4f4;
-  border: 1px solid #eee;
-  outline: none;
-  box-shadow: none;
-  line-height: 40px;
-  height: 40px;
-  width: 100%;
-  margin-bottom: 25px;
-}
-
-.modal-content .left-content textarea {
-  border-radius: 0px;
-  padding-left: 15px;
-  padding-top: 10px;
-  font-size: 13px;
-  color: #aaa;
-  background-color: #f4f4f4;
-  border: 1px solid #eee;
-  outline: none;
-  box-shadow: none;
-  min-height: 140px;
-  height: 160px;
-  max-height: 180px;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 25px;
-}
-
-.modal-content .left-content button {
-  display: inline-block;
-  background-color: #4883ff;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 10px 16px;
-  text-decoration: none;
-  border-radius: 0px;
-  border: 2px solid #4883ff;
-  transition: all 0.5s;
-}
-
-.modal-content .left-content button:hover {
-  background-color: transparent;
-  color: #4883ff;
-}
-
-.modal-content .right-content {
-  background-color: #4883ff;
-  padding: 30px 30px 65px 30px;
-  color: #fff;
-}
-
-.modal-content .right-content .section-heading h2 {
-  color: #fff;
-}
-
-.modal-content .right-content .section-heading span {
-  color: #fff;
-}
-
-.modal-content .right-content p {
-  margin-bottom: 50px;
-  color: #fff;
-}
-
-.modal-content .right-content ul li span {
-  font-size: 13px;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  width: 80px;
-  display: inline-block;
-}
-
-.modal-content .right-content ul li a {
-  font-size: 13px;
-  color: #fff;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-
-.modal-content .right-content ul li {
-  margin: 10px 0px;
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  top: 0px;
-  width: 60%;
-  margin: 0 auto;
-  background-color: #fff;
-  //background-color: #fff;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.modal-animated-in {
-  animation: totop-in .3s ease;
-}
-.modal-animated-out {
-  animation: totop-out .3s ease forwards;
-}
-.modal-content .close {
-  position: absolute;
-  right: -30px;
-  top: -30px;
-  width: 60px;
-  height: 60px;
-  z-index: 9999;
-  display: inline-block;
-  text-align: center;
-  line-height: 60px;
-  background-color: #fff;
-  color: #4883ff;
-  border-radius: 50%;
-  opacity: 1;
-}
-
-.modal-content .close:hover {
-  background-color: #fff;
-  color: #4883ff;
-}
-
-/* Keyframes */
-@keyframes totop-in {
-  0% {
-    top: 600px;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes totop-out {
-  0% {
-    top: 0px;
-    opacity: 1;
-  }
-  100% {
-    top: -100%;
-    opacity: 0;
-  }
-}
-
-
-
-footer {
-  margin-top: 80px;
-  padding: 80px 0px 70px 0px;
-  border-top: 1px solid #ddd;
-}
-
-footer .footer-heading h4 {
-  font-size: 21px;
-  color: #232323;
-  letter-spacing: 0.5px;
-  margin-top: 15px;
-  margin-bottom: 40px;
-}
-
-
-footer .about-veno .logo {
-  margin-bottom: 40px;
-}
-
-footer .about-veno ul li a {
-  width: 32px;
-  height: 32px;
-  display: inline-block;
-  text-align: center;
-  line-height: 32px;
-  background-color: #cdcdcd;
-  border-radius: 50%;
-  font-size: 15px;
-  color: #fff;
-  margin-right: 3px;
-  transition: all 0.5s;
-}
-
-footer .about-veno p {
-  margin-bottom: 25px;
-}
-
-footer .about-veno ul li a:hover {
-  background-color: #4883ff;
-}
-
-footer .useful-links ul li {
-  margin-bottom: 12px;
-}
-
-footer .useful-links ul li a {
-  font-size: 15px;
-  color: #7a7a7a;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  transition: all 0.5s;
-}
-
-footer .useful-links ul li a:hover {
-  color: #4883ff;
-}
-
-footer .useful-links ul li i {
-  color: #4883ff;
-  font-size: 6px;
-  position: relative;
-  top: -3px;
-  margin-right: 8px;
-}
-
-footer .contact-info p {
-  margin-bottom: 25px;
-}
-
-footer .contact-info ul li {
-  margin: 10px 0px;
-}
-
-footer .contact-info ul li span {
-  font-size: 13px;
-  color: #7a7a7a;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  width: 80px;
-  display: inline-block;
-}
-
-footer .contact-info ul li a {
-  font-size: 13px;
-  color: #4883ff;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-
-.sub-footer p {
-  text-align: center;
-  display: inline-block;
-  background-color: #f4f4f4;
-  width: 100%;
-  margin-bottom: 0px;
-  padding: 30px 0px;
-  font-size: 15px;
-  color: #aaaaaa;
-}
-
-.sub-footer a {
-  text-decoration: none;
-  color: #4883ff;
-}
-
-
-@media (max-width:992px) {
-
-  .banner .banner-caption {
-    padding: 200px 30px;
-  }
-
-  .submit-form input {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0px;
-  }
-
-  .submit-form select {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0px;
-  }
-
-  .featured-places .featured-item {
-    margin-bottom: 30px;
-  }
-
-  .featured-places .featured-item .down-content .first-button {
-    border-right: none;
-  }
-
-  section.our-services .service-item {
-    margin-bottom: 30px;
-  }
-
-  .down-services .left-content {
-    margin-bottom: 60px;
-  }
-
-  #video-container .video-content {
-    padding: 0 30px;
-    text-align: center;
-  }
-
-  .table-item {
-    margin-bottom: 30px;
-  }
-
-  .modal-content {
-    width: 90%;
-  }
-  .modal-content .close {
-    right: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -30px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-  }
-
-  footer .useful-links {
-    margin-top: 60px;
-  }
-
-  footer .contact-info {
-    margin-top: 60px;
-  }
-  
 }
