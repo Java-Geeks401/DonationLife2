@@ -16,6 +16,30 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+.containerButtun{
+height:400px;
+width:400px;
+box-shadow:0px 3px 15px;
+    margin-top: 60px;
+}
+.containeraccount{
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#buttun1{
+position: relative;
+           top: 39%;
+        width: 200px;
+}
+
+
+#buttun2{
+position: relative;
+           top: 39%;
+        width: 200px;
+}
 a {
   transition: all 0.3s ease;
   color: #38B;
@@ -508,6 +532,7 @@ figure.effect-honey:hover h2 i {
 .tm-container-gallery {
 	padding-top: 30px;
 	}
+
 
 /* Contact */
 

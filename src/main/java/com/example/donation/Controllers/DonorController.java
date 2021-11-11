@@ -69,6 +69,7 @@ public class DonorController {
         return new RedirectView("/#login");
     }
 
+
 //    @GetMapping("/profile2")
 //    public String profile2() {
 //        return "profile2";

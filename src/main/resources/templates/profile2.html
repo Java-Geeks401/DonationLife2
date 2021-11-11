@@ -26,7 +26,7 @@
               <li>
                 <a class="nav-link tm-nav-link" href="/profile">profile</a>
               </li>
-              <li><a href="#">Add Donation</a>
+              <li><a href="#" sec:authorize="!hasRole('ROLE_ADMIN')">Add Donation</a>
                 <ul class="sub-menu" sec:authorize="hasRole('ROLE_USER')">
                   <li th:each="cat:${catList}">
                     <a th:text=${cat.catalogName}  href="#"></a>
@@ -49,6 +49,14 @@
                   </li>
                 </ul>
 <!--                **************************************************************************************-->
+              </li>
+
+              <li sec:authorize="hasRole('ROLE_USER')">
+                <a class="nav-link tm-nav-link" href="/myPage">Donations</a>
+              </li>
+<!--              *****************************************************************************************-->
+              <li sec:authorize="hasRole('ROLE_CHARITY')">
+                <a class="nav-link tm-nav-link" href="/charityRequests">Donations</a>
               </li>
               <li >
                 <a class="nav-link tm-nav-link" href="/perform_logout">Logout</a>

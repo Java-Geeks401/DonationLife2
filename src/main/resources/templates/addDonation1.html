@@ -51,6 +51,14 @@
                                 </ul>
                                 <!--                **************************************************************************************-->
                             </li>
+                            </li>
+                            <li sec:authorize="hasRole('ROLE_USER')">
+                                <a class="nav-link tm-nav-link" href="/myPage">Donations</a>
+                            </li>
+                            <!--              *****************************************************************************************-->
+                            <li sec:authorize="hasRole('ROLE_CHARITY')">
+                                <a class="nav-link tm-nav-link" href="/perform_logout">Donations</a>
+                            </li>
                             <li >
                                 <a class="nav-link tm-nav-link" href="/perform_logout">Logout</a>
                             </li>

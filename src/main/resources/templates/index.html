@@ -44,6 +44,10 @@
                 <li class="nav-item" sec:authorize="!isAuthenticated()">
                     <a class="nav-link tm-nav-link" href="#login">Login</a>
                 </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link tm-nav-link" href="#account">account</a>
+                </li>
+
                 <li class="nav-item" sec:authorize="!isAuthenticated()">
                     <a class="nav-link tm-nav-link" href="#whatwedo2">Sign-up</a>
                 </li>
@@ -183,7 +187,19 @@
             </div>
         </div>
     </section>
-<!--    **********************************************sign up form -->
+
+    <!--    **************************************************************************My account in form-->
+    <section id="account" class="tm-section-pad-top" sec:authorize="isAuthenticated()" >
+        <div class="containeraccount">
+            <div class="containerButtun">
+            <button class="control-button up" id="buttun1" ><a style="color:white;font-size: 20px" href="/perform_logout">Logout</a></button>
+            </div>
+            <div class="containerButtun">
+                <button class="control-button up" id="buttun2"><a style="color:white;font-size: 20px;" href="/profile">profile</a></button>
+            </div>
+        </div>
+    </section>
+    <!--    **********************************************sign up form -->
     <section sec:authorize="!isAuthenticated()" id="whatwedo2" class="tm-section-pad-top" >
 
         <div class="containersinup">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,6 +61,13 @@
                                     </li>
                                 </ul>
                                 <!--                **************************************************************************************-->
+                            </li>
+                            <li sec:authorize="hasRole('ROLE_USER')">
+                                <a class="nav-link tm-nav-link" href="/myPage">Donations</a>
+                            </li>
+                            <!--              *****************************************************************************************-->
+                            <li sec:authorize="hasRole('ROLE_CHARITY')">
+                                <a class="nav-link tm-nav-link" href="/charityRequests">Donations</a>
                             </li>
                             <li >
                                 <a class="nav-link tm-nav-link" href="/perform_logout">Logout</a>
