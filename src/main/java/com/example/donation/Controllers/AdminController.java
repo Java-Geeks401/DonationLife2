@@ -53,7 +53,7 @@ public class AdminController {
         model.addAttribute("items", items);
         model.addAttribute("donaters", donators);
         model.addAttribute("organizations", organizations);
-        return "dashboard";
+        return "dashboard2";
     }
 
     @PostMapping("/admin/addCatalog")

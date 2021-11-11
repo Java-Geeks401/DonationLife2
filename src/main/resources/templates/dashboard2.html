@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>dashbord</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Calendar</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="../plugins/fullcalendar/main.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+</head>
+<body style="width:960px;margin:auto">
+<h1>this is dash bord page</h1>
+<div th:insert="fragments/header :: header"></div>
+
+<main>
+    <!--    **********************************-->
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-info"><i class="far fa-bookmark"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Bookmarks</span>
+                    <span class="info-box-number">41,410</span>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" style="width: 70%"></div>
+                    </div>
+                    <span class="progress-description">
+          70% Increase in 30 Days
+        </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box bg-success">
+                <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Likes</span>
+                    <span class="info-box-number">41,410</span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 70%"></div>
+                    </div>
+                    <span class="progress-description">
+          70% Increase in 30 Days
+        </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box bg-gradient-warning">
+                <span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Events</span>
+                    <span class="info-box-number">41,410</span>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 70%"></div>
+                    </div>
+                    <span class="progress-description">
+          70% Increase in 30 Days
+        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--    ***********************************-->
+
+
+
+
+    <!--    **********************************-->
+
+    <!--    <div style="display:flex;justify-content:center;over-flow:auto;" class="alert alert-primary" role="alert" >-->
+    <!--        ADMIN SECTION-->
+    <!--    </div>-->
+    <!--    <div sec:authorize="hasAuthority('ROLE_ADMIN')"  >-->
+    <!--        <div class="card" style="width: 18rem;">-->
+    <!--            <img class="card-img-top" th:src="@{/img/dashboard/admin.png}" alt="Card image cap">-->
+    <!--            <div class="card-body">-->
+    <!--                <h5 th:text="${donaters.username}"></h5>-->
+    <!--                <p th:text="${donaters.firstName}+' '+${donaters.lastName}"></p>-->
+
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <div style="display:flex;justify-content:center;margin:20px 0px" class="alert alert-primary" role="alert">
+        DONATERS SECTION
+    </div>
+
+    <!--    <div class="row">-->
+
+    <!--        <div th:each="donor:${donaters}">-->
+    <!--            <div class="card" style="width: 18rem;">-->
+    <!--                <img class="card-img-top" th:src="@{/img/dashboard/donator.svg}" alt="Card image cap">-->
+    <!--                <div class="card-body">-->
+    <!--                    <h5 th:text="${donor.username}"></h5>-->
+    <!--                    <p th:text="${donor.firstName}+' '+${donor.lastName}"></p>-->
+    <!--                    <p th:text="${donor.dateOfBirth}"></p>-->
+    <!--                    <a th:href="@{/admin/deletedonator/{id}(id=${donor.getId()})}" class="btn btn-primary">Delete Donor</a>-->
+
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <table class="table table-bordered"  style="overflow:auto;">
+        <thead>
+        <tr>
+            <th>User Img</th>
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Date Of Birth</th>
+            <th> Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="donor:${donaters}">
+            <td>
+                <img class="card-img-top" th:src="@{/img/dashboard/donator.svg}" style="width: 50px;" alt="Card image cap">
+
+            </td>
+            <td th:text="${donor.username}"></td>
+            <td th:text="${donor.firstName}+' '+${donor.lastName}"></td>
+            <td th:text="${donor.dateOfBirth}"></td>
+            <td>
+                <a th:href="@{/admin/deletedonator/{id}(id=${donor.getId()})}" class="btn btn-primary">Delete
+                    Donor</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <div style="display:flex;justify-content:center;margin:20px 0px" class="alert alert-primary" role="alert">
+        CHARITY ORGANIZATIONS SECTION
+    </div>
+
+    <!--    <div class="row">-->
+    <!--        <div th:each="organization:${organizations}">-->
+    <!--            <div class="card" style="width: 18rem;margin:20px;">-->
+    <!--                <img class="card-img-top" th:src="@{/img/dashboard/charity.png}" alt="Card image cap">-->
+    <!--                <div class="card-body">-->
+    <!--                    <h5 th:text="${organization.name}"></h5>-->
+    <!--                    <p th:text="${organization.email}"></p>-->
+    <!--                    <p th:text="${organization.facebookPage}"></p>-->
+    <!--                    <p th:text="${organization.number}"></p>-->
+    <!--                    <p th:text="${organization.address}"></p>-->
+    <!--                    <a th:href="@{/admin/deletecharityorg/{id}(id=${organization.getId()})}"-->
+    <!--                       class="btn btn-primary">Delete Organization</a>-->
+
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <table class="table table-bordered"  style="overflow:auto;">
+        <thead>
+        <tr>
+            <th>Charity Img</th>
+            <th>Charity Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Address</th>
+            <th> Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="organization:${organizations}">
+            <td>
+                <img class="card-img-top" th:src="@{/img/dashboard/charity.png}" style="width: 50px;" alt="Card image cap">
+
+            </td>
+            <td th:text="${organization.name}"></td>
+            <td th:text="${organization.email}"></td>
+            <td  th:text="${organization.facebookPage}"></td>
+            <td th:text="${organization.number}"></td>
+            <td th:text="${organization.address}"></td>
+
+            <td>
+                <a th:href="@{/admin/deletecharityorg/{id}(id=${organization.getId()})}" class="btn btn-warning">
+                    Delete Org</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    <div style="display:flex;justify-content:center;margin:20px 0px" class="alert alert-primary" role="alert">
+        LIST OF CATEGORIES
+    </div>
+
+    <div class="row" style="over-flow:auto;" >
+        <div class="card" style="width: 15rem;margin:20px;" th:each="catalog:${catalogs}">
+            <h5 class="card-title" th:text="${catalog.catalogName}" style="text-align:center"></h5>
+            <div class="card-body"style="display:flex;justify-content:center">
+
+                <a  th:href="@{/admin/deletecatalog/{id}(id=${catalog.getCatalogId()})}" class="btn btn-success">Delete
+                    catalog</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin:50px">
+        <!--        <ul th:each="catalog:${catalogs}" class="list-group">-->
+        <!--            <li class="list-group-item list-group-item-success"><span th:text="${catalog.catalogName}"></span>-->
+        <!--                <a th:href="@{/admin/deletecatalog/{id}(id=${catalog.getCatalogId()})}" class="btn btn-primary">Delete-->
+        <!--                    catalog</a>-->
+        <!--            </li>-->
+
+
+        <!--        </ul>-->
+        <form method="POST" action="/admin/addCatalog">
+            <div class="mb-3">
+                <label for="name" class="form-label" style="margin-left:2%"> Catalog Name</label>
+                <input type="text" class="form-control" id="name" name="name" style="width:25%;margin-left:2%"
+                       required>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-left:2%">Add catalog</button>
+        </form>
+
+    </div>
+
+
+    <div style="display:flex;justify-content:center" class="alert alert-primary" role="alert">
+        LIST OF ITEMS
+    </div>
+
+
+
+    <div class="row" style="overflow:auto;height:200px" >
+        <div class="card" style="width: 15rem;margin:20px;" th:each="item:${items}">
+            <h2 class="card-title" th:text="${item.catalogItems.catalogName}" style="text-align:center"></h2>
+            <br>
+            <h6 class="card-title" th:text="${item.itemName}" style="text-align:center"></h6>
+
+            <div class="card-body"style="display:flex;justify-content:center">
+
+                <a  th:href="@{/admin/deleteItem/{id}(id=${item.getItemId()})}" class="btn btn-danger">Delete
+                    Item</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div style="margin:50px">
+        <!--        <ul th:each="item:${items}" class="list-group">-->
+        <!--            <li class="list-group-item list-group-item-success"><span th:text="${item.itemName}"></span>/-->
+        <!--                <span th:text="${item.catalogItems.catalogName}"></span>-->
+        <!--                <a th:href="@{/admin/deleteItem/{id}(id=${item.getItemId()})}" class="btn btn-primary">Delete-->
+        <!--                    Item</a>-->
+        <!--            </li>-->
+
+        <!--        </ul>-->
+        <form method="POST" action="/admin/addItem" >
+
+            <div class="form-group">
+                <label for="catalogId">Catalog Name</label>
+                <select class="form-control" id="catalogId" name="catalogId" style="width: 27%;">
+                    <option th:each="catalog:${catalogs}" th:value="${catalog.catalogId}"><span
+                            th:text="${catalog.catalogName}"></span></option>
+                </select>
+            </div>
+
+            <!--            <div class="mb-3">-->
+            <!--                <label for="catalogId" class="form-label" style="margin-left:2%"> Catalog Id</label>-->
+            <!--                <input type="text" class="form-control" id="catalogId" name="catalogId"  style="width:25%;margin-left:2%" required>-->
+
+            <!--            </div>-->
+
+
+            <div class="mb-3">
+                <label for="itemName" class="form-label" style="margin-left:2%"> Item Name:</label>
+                <input type="text" name="itemName" class="form-control" id="itemName"
+                       style="width:25%;margin-left:2%" required>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" style="margin-left:2%">Add Item</button>
+        </form>
+    </div>
+    <!--    ***********************-->
+
+
+</main>
+</body>
+</html>
